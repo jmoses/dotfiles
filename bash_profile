@@ -13,6 +13,7 @@ export PS1='\[\033[01;32m\]\u\[\033[00m\][`~/.rvm/bin/rvm-prompt v g`]\[\033[01;
 #Aliases
 alias login='echo "Stop that."'
 alias g='git'
+alias ctags="`brew --prefix`/bin/ctags"
 
 
 # RVM
