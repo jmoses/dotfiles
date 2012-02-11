@@ -13,4 +13,4 @@
 [color "sh"]
 		workdir = cyan bold
 [core]
-	excludefiles = /Users/jmoses/.gitignore
+	excludesfile = /Users/jmoses/.gitignore
