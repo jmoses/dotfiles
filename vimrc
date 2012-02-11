@@ -14,6 +14,7 @@ set nocompatible
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
+set scrolloff=3
 
 " CTRLp
 let g:ctrlp_working_path_mode = 2
