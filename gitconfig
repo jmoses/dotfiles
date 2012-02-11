@@ -12,3 +12,5 @@
 	        close = !ruby ~/bin/pull_request_and_close_branch.rb
 [color "sh"]
 		workdir = cyan bold
+[core]
+	excludefiles = /Users/jmoses/.gitignore
