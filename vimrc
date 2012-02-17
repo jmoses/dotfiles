@@ -15,7 +15,8 @@ set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
 set scrolloff=3
+set wildignore+=.git
 
-" CTRLp
-let g:ctrlp_working_path_mode = 2
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+"CommandT
+nnoremap <silent> <C-p> :CommandT<CR>
+let g:CommandTMaxHeight=35
