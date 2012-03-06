@@ -1,2 +1,6 @@
+bin/
 *.swp
+*.swo
 tags
+.bundle/
+.sass-cache
