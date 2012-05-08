@@ -8,7 +8,7 @@ export LESS='-R'
 export CC='/usr/bin/gcc-4.2'
 
 # Prompt
-export PS1='\[\033[01;32m\]\u\[\033[00m\][`~/.rvm/bin/rvm-prompt v g`]\[\033[01;36m\]\w\[\033[00m\]\$ '
+export PS1='\[\033[G\]\[\033[01;32m\]\u\[\033[00m\][`~/.rvm/bin/rvm-prompt v g`]\[\033[01;36m\]\w\[\033[00m\]\$ '
 
 #Aliases
 alias login='echo "Stop that."'
