@@ -5,3 +5,4 @@ tags
 .bundle/
 .sass-cache
 .rvmrc
+.powenv
