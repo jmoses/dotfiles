@@ -14,6 +14,7 @@ export PS1='\[\033[G\]\[\033[01;32m\]\u\[\033[00m\][`~/.rvm/bin/rvm-prompt v g`]
 alias login='echo "Stop that."'
 alias g='git'
 alias ctags="`brew --prefix`/bin/ctags"
+alias be="bundle exec"
 
 
 # RVM
