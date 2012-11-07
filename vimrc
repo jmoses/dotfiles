@@ -10,6 +10,9 @@ if has("gui_running")
 	set guioptions-=T
 end
 
+"set colorcolumn=80
+"highlight ColorColumn guibg=#232323
+
 set nocompatible
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
