@@ -15,6 +15,7 @@ alias login='echo "Stop that."'
 alias g='git'
 alias ctags="`brew --prefix`/bin/ctags"
 alias be="bundle exec"
+alias ignore="IGNORE_BRANCH_DB=yes "
 
 
 # RVM

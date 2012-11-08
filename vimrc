@@ -22,4 +22,5 @@ set wildignore+=.git
 
 "CommandT
 nnoremap <silent> <C-p> :CommandT<CR>
+nnoremap <silent> <F5> :CommandTFlush<CR>
 let g:CommandTMaxHeight=35
