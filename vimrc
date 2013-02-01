@@ -24,3 +24,7 @@ set wildignore+=.git
 nnoremap <silent> <C-p> :CommandT<CR>
 nnoremap <silent> <F5> :CommandTFlush<CR>
 let g:CommandTMaxHeight=35
+
+"Disable vim-ruby's RI help
+autocmd FileType ruby setlocal balloonexpr=
+

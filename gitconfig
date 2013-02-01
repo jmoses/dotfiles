@@ -4,7 +4,6 @@
 [color]
 		ui = auto
 [push]
-		default = tracking
 [alias]
 	  cm = commit -m
 	    pp = !git pull && git push
@@ -14,3 +13,5 @@
 		workdir = cyan bold
 [core]
 	excludesfile = /Users/jmoses/.gitignore
+[push]
+	default = current
