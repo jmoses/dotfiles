@@ -5,4 +5,6 @@ tags
 .bundle/
 .sass-cache
 .rvmrc
+.ruby-version
+.ruby-gemset
 .powenv
