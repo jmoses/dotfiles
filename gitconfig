@@ -13,6 +13,7 @@
 		workdir = cyan bold
 [core]
 	excludesfile = /Users/jmoses/.gitignore
+	trustctime = false
 [push]
 	default = current
 [merge]
