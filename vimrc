@@ -28,3 +28,10 @@ let g:CommandTMaxHeight=35
 "Disable vim-ruby's RI help
 autocmd FileType ruby setlocal balloonexpr=
 
+"Markdown files
+au BufNewFile,BufRead *.md set filetype=markdown
+
+" Folds
+au BufWrite * mkview
+au BufRead * silent loadview
+
