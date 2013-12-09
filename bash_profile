@@ -20,3 +20,4 @@ alias ignore="IGNORE_BRANCH_DB=yes "
 
 # RVM
 [[ -s "/Users/jmoses/.rvm/scripts/rvm" ]] && source "/Users/jmoses/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="/usr/local/heroku/bin:/Users/jmoses/bin:$PATH"
