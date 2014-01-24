@@ -31,6 +31,9 @@ autocmd FileType ruby setlocal balloonexpr=
 "Markdown files
 au BufNewFile,BufRead *.md set filetype=markdown
 
+" Go files
+au BufRead,BufNewFile *.go set filetype=go
+
 " Folds
 au BufWrite * mkview
 au BufRead * silent loadview
