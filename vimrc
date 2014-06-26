@@ -25,8 +25,10 @@ nnoremap <silent> <C-p> :CommandT<CR>
 nnoremap <silent> <F5> :CommandTFlush<CR>
 let g:CommandTMaxHeight=35
 
-"Disable vim-ruby's RI help
-autocmd FileType ruby setlocal balloonexpr=
+if has("gui_running")
+  "Disable vim-ruby's RI help
+  autocmd FileType ruby setlocal balloonexpr=
+end
 
 "Markdown files
 au BufNewFile,BufRead *.md set filetype=markdown
@@ -38,3 +40,6 @@ au BufRead,BufNewFile *.go set filetype=go
 au BufWrite * mkview
 au BufRead * silent loadview
 
+" indent-guides
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
