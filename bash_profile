@@ -1,6 +1,7 @@
 # shopts
 
 shopt -s histappend
+ulimit -n 8192
 
 # Vars
 export EDITOR='vim'
@@ -9,8 +10,8 @@ export HISTCONTROL='erasedups'
 export CLICOLOR=true
 export USE_BUNDLER=try
 export LESS='-R'
-export CC='/usr/bin/gcc-4.2'
-export PROMPT_COMMAND='history -a; history -n'
+export CC='/usr/bin/gcc'
+#export PROMPT_COMMAND='history -a; history -n'
 
 # RVM
 #[[ -s "/Users/jmoses/.rvm/scripts/rvm" ]] && source "/Users/jmoses/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -26,6 +27,11 @@ source ~/perl5/perlbrew/etc/bashrc
 #export PS1='\[\033[G\]\[\033[01;32m\]\u\[\033[00m\][`~/.rvm/bin/rvm-prompt v g`]\[\033[01;36m\]\w\[\033[00m\]\$ '
 export PS1='\[\033[G\]\[\033[01;32m\]\u\[\033[00m\]\[\033[01;36m\]\w\[\033[00m\]\$ '
 
+#if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+#  GIT_PROMPT_THEME=Default
+#  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+#fi
+
 #Aliases
 alias login='echo "Stop that."'
 alias g='git'
@@ -33,12 +39,22 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias be="bundle exec"
 alias ignore="IGNORE_BRANCH_DB=yes "
 
+# hosts
+pi='pi@192.168.1.108'
+imac=192.168.1.151
+dl=192.168.1.117
+
+function c {
+  slogin ${!1}
+}
+
 function opsc_open {
   open "http://$(ctool info $1 --hosts):8888/"
 }
 
 function opsc_branch {
   echo "Installing $2 on $1"
+  ctool reset $1
   ctool install -b $2 $1 opscenter
   echo "Building agents"
   printf '{"operation":"build_agent_packages", "script":"build-agent-packages.sh"}' | ctool module $1 0 opscenter.py
@@ -46,6 +62,12 @@ function opsc_branch {
   #ctool run $1 0 "cd ripcord &&"
   echo "Starting"
   ctool start $1 opscenter
+}
+
+function dse_install {
+  echo "Installing DSE $2 on $1"
+  ctool install -v $2 $1 enterprise
+  ctool start $1 enterprise
 }
 
 function opsc_api {
@@ -78,4 +100,5 @@ function flip_images {
   mogrify -rotate 180 $*
 }
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
