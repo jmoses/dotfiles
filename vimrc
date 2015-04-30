@@ -21,9 +21,27 @@ set scrolloff=3
 set wildignore+=.git,*.pyc
 
 "CommandT
+function! s:GotoOrOpen(command, ...)
+  for file in a:000
+    if a:command == 'e'
+      exec 'e ' . file
+    else
+      exec "tab drop " . file
+    endif
+  endfor
+endfunction
+
+command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
+
+let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
+let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tab'
+
 nnoremap <silent> <C-p> :CommandT<CR>
 nnoremap <silent> <F5> :CommandTFlush<CR>
 let g:CommandTMaxHeight=35
+" May want this as per-project, but how?
+let g:CommandTTraverseSCM='pwd'
+
 
 "Taglist
 nnoremap <silent> <F6> :TlistToggle<CR>
