@@ -63,6 +63,7 @@ let g:airline_theme = 'luna'
 set noshowmode "Don't show vim's default mode
 let g:airline#extensions#branch#enabled = 1 "Enable git integration
 let g:airline_powerline_fonts = 1 "Fancy glyphs
+let g:airline_section_y=''
 
 if has("gui_running")
   "Disable vim-ruby's RI help
