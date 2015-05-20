@@ -50,10 +50,21 @@ let Tlist_Close_On_Select = 1
 let Tlist_Sort_Type = "name"
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
+"airline
+set laststatus=2 "Always show
+let g:airline_theme = 'luna'
+set noshowmode "Don't show vim's default mode
+
 if has("gui_running")
   "Disable vim-ruby's RI help
   autocmd FileType ruby setlocal balloonexpr=
 end
+
+"Go to last tab
+" http://stackoverflow.com/questions/2119754/switch-to-last-active-tab-in-vim
+let g:lasttab = 1
+nmap <F10> :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lattab = tabpagenr()
 
 "Python
 au BufNewFile,BufRead *.py set filetype=python

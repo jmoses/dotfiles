@@ -15,7 +15,7 @@ export CC='/usr/bin/gcc'
 
 # RVM
 #[[ -s "/Users/jmoses/.rvm/scripts/rvm" ]] && source "/Users/jmoses/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-export PATH="/usr/local/bin:/Users/jmoses/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/Users/jmoses/bin:$PATH"
 
 # Datastax
 export PATH="/Users/jmoses/dev/datastax/dsc-cassandra-2.1.0/tools/bin:/Users/jmoses/dev/datastax/automaton/bin:$PATH"
