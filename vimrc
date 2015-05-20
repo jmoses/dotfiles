@@ -6,8 +6,11 @@ set gfn=Monaco\ for\ Powerline:h12
 if has("mac") || has("macunix")
     set guifont=Monaco\ for\ Powerline:h12
 end
+
+" Colors
 set background=dark
 colorscheme ir_black
+
 set number
 let g:NERDTreeWinSize=30
 if has("gui_running")
