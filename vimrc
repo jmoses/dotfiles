@@ -1,7 +1,11 @@
 call pathogen#infect()
 syntax on
 filetype plugin indent on
-set gfn=Monaco:h12
+"https://gist.github.com/kevinis/c788f85a654b2d7581d8
+set gfn=Monaco\ for\ Powerline:h12
+if has("mac") || has("macunix")
+    set guifont=Monaco\ for\ Powerline:h12
+end
 set background=dark
 colorscheme ir_black
 set number
@@ -54,6 +58,8 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 set laststatus=2 "Always show
 let g:airline_theme = 'luna'
 set noshowmode "Don't show vim's default mode
+let g:airline#extensions#branch#enabled = 1 "Enable git integration
+let g:airline_powerline_fonts = 1 "Fancy glyphs
 
 if has("gui_running")
   "Disable vim-ruby's RI help
