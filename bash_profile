@@ -11,6 +11,7 @@ export CLICOLOR=true
 export USE_BUNDLER=try
 export LESS='-R'
 export CC='/usr/bin/gcc'
+export PROMPT_DIRTRIM=2
 #export PROMPT_COMMAND='history -a; history -n'
 
 # RVM
@@ -32,6 +33,10 @@ export PS1='\[\033[G\]\[\033[01;32m\]\u\[\033[00m\]\[\033[01;36m\]\w\[\033[00m\]
 #  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 #fi
 
+if [ -f ~/bin/real_python_exit.py ]; then
+  export PYTHONSTARTUP=~/bin/real_python_exit.py
+fi
+
 #Aliases
 alias login='echo "Stop that."'
 alias g='git'
@@ -42,7 +47,7 @@ alias ignore="IGNORE_BRANCH_DB=yes "
 # hosts
 pi='pi@192.168.1.108'
 imac=192.168.1.151
-dl=192.168.1.117
+vpn=192.168.1.117
 
 function c {
   slogin ${!1}

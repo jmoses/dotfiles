@@ -43,6 +43,9 @@ command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
 let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tab'
 
+" Don't use flake8 it's slow as balls
+let g:syntastic_python_checker = 'pyflakes'
+
 nnoremap <silent> <C-p> :CommandT<CR>
 nnoremap <silent> <F5> :CommandTFlush<CR>
 let g:CommandTMaxHeight=35
@@ -64,6 +67,9 @@ set noshowmode "Don't show vim's default mode
 let g:airline#extensions#branch#enabled = 1 "Enable git integration
 let g:airline_powerline_fonts = 1 "Fancy glyphs
 let g:airline_section_y=''
+
+" SmartHomeKey
+noremap <silent> <D-Left> :SmartHomeKey<CR>
 
 if has("gui_running")
   "Disable vim-ruby's RI help
@@ -87,9 +93,9 @@ au BufNewFile,BufRead *.md set filetype=markdown
 " Go files
 au BufRead,BufNewFile *.go set filetype=go
 
-" Folds
-au BufWrite * mkview
-au BufRead * silent loadview
+" Folds --- folds are annoying
+"au BufWrite * mkview
+"au BufRead * silent loadview
 
 " indent-guides
 let g:indent_guides_enable_on_vim_startup=1
