@@ -53,37 +53,11 @@ function c {
   slogin ${!1}
 }
 
-function opsc_open {
-  open "http://$(ctool info $1 --hosts):8888/"
-}
-
-function opsc_branch {
-  echo "Installing $2 on $1"
-  ctool reset $1
-  ctool install -b $2 $1 opscenter
-  echo "Building agents"
-  printf '{"operation":"build_agent_packages", "script":"build-agent-packages.sh"}' | ctool module $1 0 opscenter.py
-  #echo "Building static assets"
-  #ctool run $1 0 "cd ripcord &&"
-  echo "Starting"
-  ctool start $1 opscenter
-}
-
-function dse_install {
-  echo "Installing DSE $2 on $1"
-  ctool install -v $2 $1 enterprise
-  ctool start $1 enterprise
-}
 
 function opsc_api {
   ip=$(ctool info --hosts $1)
 
   curl http://$ip:8888/$2
-}
-
-function opsc_restart {
-  ctool stop $1 opscenter
-  ctool start $1 opscenter
 }
 
 function encode_pattern {
