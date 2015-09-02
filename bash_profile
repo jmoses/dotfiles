@@ -11,6 +11,7 @@ export CLICOLOR=true
 export USE_BUNDLER=try
 export LESS='-R'
 export CC='/usr/bin/gcc'
+export PROMPT_DIRTRIM=2
 #export PROMPT_COMMAND='history -a; history -n'
 
 # RVM
@@ -36,6 +37,10 @@ export PS1='\[\033[G\]\[\033[01;32m\]\u\[\033[00m\]\[\033[01;36m\]\w\[\033[00m\]
 #  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 #fi
 
+if [ -f ~/bin/real_python_exit.py ]; then
+  export PYTHONSTARTUP=~/bin/real_python_exit.py
+fi
+
 #Aliases
 alias login='echo "Stop that."'
 alias g='git'
@@ -46,43 +51,17 @@ alias ignore="IGNORE_BRANCH_DB=yes "
 # hosts
 pi='pi@192.168.1.108'
 imac=192.168.1.151
-dl=192.168.1.117
+vpn=192.168.1.117
 
 function c {
   slogin ${!1}
 }
 
-function opsc_open {
-  open "http://$(ctool info $1 --hosts):8888/"
-}
-
-function opsc_branch {
-  echo "Installing $2 on $1"
-  ctool reset $1
-  ctool install -b $2 $1 opscenter
-  echo "Building agents"
-  printf '{"operation":"build_agent_packages", "script":"build-agent-packages.sh"}' | ctool module $1 0 opscenter.py
-  #echo "Building static assets"
-  #ctool run $1 0 "cd ripcord &&"
-  echo "Starting"
-  ctool start $1 opscenter
-}
-
-function dse_install {
-  echo "Installing DSE $2 on $1"
-  ctool install -v $2 $1 enterprise
-  ctool start $1 enterprise
-}
 
 function opsc_api {
   ip=$(ctool info --hosts $1)
 
   curl http://$ip:8888/$2
-}
-
-function opsc_restart {
-  ctool stop $1 opscenter
-  ctool start $1 opscenter
 }
 
 function encode_pattern {
