@@ -12,6 +12,7 @@ export USE_BUNDLER=try
 export LESS='-R'
 export CC='/usr/bin/gcc'
 export PROMPT_DIRTRIM=2
+export GREP_OPTIONS='--color=always'
 #export PROMPT_COMMAND='history -a; history -n'
 
 # RVM

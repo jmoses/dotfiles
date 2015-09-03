@@ -70,6 +70,8 @@ let g:airline_section_y=''
 
 " SmartHomeKey
 noremap <silent> <D-Left> :SmartHomeKey<CR>
+imap <silent> <D-Left> <C-O>:SmartHomeKey<CR> 
+
 
 if has("gui_running")
   "Disable vim-ruby's RI help
@@ -92,6 +94,12 @@ au BufNewFile,BufRead *.md set filetype=markdown
 
 " Go files
 au BufRead,BufNewFile *.go set filetype=go
+
+" Clojure
+au Syntax clojure RainbowParenthesesActivate
+au Syntax clojure RainbowParenthesesLoadRound
+au Syntax clojure RainbowParenthesesLoadSquare
+au Syntax clojure RainbowParenthesesLoadBraces
 
 " Folds --- folds are annoying
 "au BufWrite * mkview
