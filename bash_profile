@@ -1,3 +1,5 @@
+# vim: set syntax=sh:
+
 # shopts
 
 shopt -s histappend
@@ -65,24 +67,30 @@ function opsc_api {
   curl http://$ip:8888/$2
 }
 
-function encode_pattern {
-  rate=$1
-  pattern=$2
-  output=$3
+export BOOKMARK_FILE="$HOME/.my-stash/bookmarks"
+function add_bookmark {
+  target=$1
+  if [ "${target}x" == "x" ] ; then
+    target=`pwd`
+  fi
 
-  # Seems like motion can't output fast enough on the pi,
-  # so we're getting frame drops, which is mostly fine but
-  # it would be great if the previous frame would dupe across
-  # the gap.  Maybe not specifiying the output framerate?
+  echo $target >> $BOOKMARK_FILE
 
-  ffmpeg -framerate $rate -pattern_type glob -i "$pattern" -c:v libx264 -pix_fmt yuv420p -r 30 $output
-
+  update_bookmarks
 }
 
-function flip_images {
-  # Be nice if this used all my cores
-  mogrify -rotate 180 $*
+function update_bookmarks {
+  cat $BOOKMARK_FILE | sort | uniq | tee $BOOKMARK_FILE > /dev/null
 }
+
+unalias cdg 2> /dev/null
+cdg() {
+   local dest_dir=$(cat $BOOKMARK_FILE | fzf -1 -q $1)
+   if [[ $dest_dir != '' ]]; then
+      cd "$dest_dir"
+   fi
+}
+export -f cdg > /dev/null
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
