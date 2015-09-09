@@ -97,7 +97,7 @@ if has("gui_macvim")
 end
 " SmartHomeKey
 noremap <silent> <D-Left> :SmartHomeKey<CR>
-imap <silent> <D-Left> <C-O>:SmartHomeKey<CR> 
+" #inoremap <D-Left> <C-O>:SmartHomeKey<CR> 
 
 
 if has("gui_running")
