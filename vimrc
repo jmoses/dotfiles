@@ -68,8 +68,37 @@ let g:airline#extensions#branch#enabled = 1 "Enable git integration
 let g:airline_powerline_fonts = 1 "Fancy glyphs
 let g:airline_section_y=''
 
+" osx gui stuff
+if has("gui_macvim")
+  let macvim_skip_cmd_opt_movement=1
+  " From macvim gvimrc
+  no   <D-Left>       <Home>
+  no!  <D-Left>       <Home>
+  no   <M-Left>       <C-Left>
+  no!  <M-Left>       <C-Left>
+
+  no   <D-Right>      <End>
+  no!  <D-Right>      <End>
+  no   <M-Right>      <C-Right>
+  no!  <M-Right>      <C-Right>
+
+  no   <D-Up>         <C-Home>
+  ino  <D-Up>         <C-Home>
+  no   <M-Up>         {
+  ino  <M-Up>         <C-o>{
+
+  no   <D-Down>       <C-End>
+  ino  <D-Down>       <C-End>
+  no   <M-Down>       }
+  ino  <M-Down>       <C-o>}
+
+  ino  <M-BS>         <C-w>
+  ino  <D-BS>         <C-u>
+end
 " SmartHomeKey
 noremap <silent> <D-Left> :SmartHomeKey<CR>
+" #inoremap <D-Left> <C-O>:SmartHomeKey<CR> 
+
 
 if has("gui_running")
   "Disable vim-ruby's RI help
@@ -92,6 +121,12 @@ au BufNewFile,BufRead *.md set filetype=markdown
 
 " Go files
 au BufRead,BufNewFile *.go set filetype=go
+
+" Clojure
+au Syntax clojure RainbowParenthesesActivate
+au Syntax clojure RainbowParenthesesLoadRound
+au Syntax clojure RainbowParenthesesLoadSquare
+au Syntax clojure RainbowParenthesesLoadBraces
 
 " Folds --- folds are annoying
 "au BufWrite * mkview
