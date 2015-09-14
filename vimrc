@@ -97,7 +97,7 @@ if has("gui_macvim")
 end
 " SmartHomeKey
 noremap <silent> <D-Left> :SmartHomeKey<CR>
-" #inoremap <D-Left> <C-O>:SmartHomeKey<CR> 
+imap <D-Left> <C-O><D-Left>
 
 
 if has("gui_running")
@@ -115,6 +115,7 @@ au TabLeave * let g:lattab = tabpagenr()
 au BufNewFile,BufRead *.py set filetype=python
 autocmd FileType python setlocal formatoptions+=r
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
+"au FileType python inoremap <D-Left> <C-O>:SmartHomeKey<CR> 
 
 "Markdown files
 au BufNewFile,BufRead *.md set filetype=markdown
