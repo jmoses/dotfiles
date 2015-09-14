@@ -31,6 +31,8 @@ ctool_complete=/Users/jmoses/dev/datastax/automaton/bashcomplete/ctool.bash_comp
 
 perlbrew=/Users/jmoses/perl5/perlbrew/etc/bashrc
 [ -f $perlbrew ] && . $perlbrew
+
+[ -f $HOME/.tokens ] && . $HOME/.tokens
 # Prompt
 #export PS1='\[\033[G\]\[\033[01;32m\]\u\[\033[00m\][`~/.rvm/bin/rvm-prompt v g`]\[\033[01;36m\]\w\[\033[00m\]\$ '
 export PS1='\[\033[G\]\[\033[01;32m\]\u\[\033[00m\]\[\033[01;36m\]\w\[\033[00m\]\$ '
