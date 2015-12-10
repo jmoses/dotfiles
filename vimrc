@@ -59,6 +59,10 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
 let Tlist_Sort_Type = "name"
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+let Tlist_Show_One_File = 1
+
+"regular tag support
+set tags=./.tags;/
 
 "airline
 set laststatus=2 "Always show
