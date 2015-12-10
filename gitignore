@@ -2,6 +2,7 @@ bin/
 *.swp
 *.swo
 tags
+.tags
 .bundle/
 .sass-cache
 .rvmrc
