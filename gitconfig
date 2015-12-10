@@ -5,10 +5,11 @@
 		ui = auto
 [push]
 [alias]
-	  cm = commit -m
-	    pp = !git pull && git push
-	      ppmm = !ruby ~/bin/push_and_merge_current_branch_to_master.rb
-	        close = !ruby ~/bin/pull_request_and_close_branch.rb
+	cm = commit -m
+	pp = !git pull && git push
+	ppmm = !ruby ~/bin/push_and_merge_current_branch_to_master.rb
+	close = !ruby ~/bin/pull_request_and_close_branch.rb
+  fix = "!f() { mvim -np `git diff --name-only --diff-filter=U | sort | uniq`; }; f"
 	root = rev-parse --show-toplevel
 [color "sh"]
 		workdir = cyan bold
