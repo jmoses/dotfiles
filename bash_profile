@@ -42,8 +42,8 @@ export PS1='\[\033[G\]\[\033[01;32m\]\u\[\033[00m\]\[\033[01;36m\]\w\[\033[00m\]
 #  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 #fi
 
-if [ -f ~/bin/real_python_exit.py ]; then
-  export PYTHONSTARTUP=~/bin/real_python_exit.py
+if [ -f ~/.bin/real_python_exit.py ]; then
+  export PYTHONSTARTUP=~/.bin/real_python_exit.py
 fi
 
 #Aliases
