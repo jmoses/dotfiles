@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'rubygems/server'
+Gem::Server.run( :gemdir => "/Library/Ruby/", :port => 8808, :daemon => false )

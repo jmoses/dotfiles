@@ -1,0 +1,6 @@
+#!/bin/bash
+
+input_file=$1
+output_file=`basename ${input_file} .flv`.mpg
+
+ffmpeg -i $input_file -ab 128 -ar 44100 -ac 2 $output_file
