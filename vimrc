@@ -71,6 +71,7 @@ set noshowmode "Don't show vim's default mode
 let g:airline#extensions#branch#enabled = 1 "Enable git integration
 let g:airline_powerline_fonts = 1 "Fancy glyphs
 let g:airline_section_y=''
+au WinEnter * AirlineRefresh
 
 " osx gui stuff
 if has("gui_macvim")
