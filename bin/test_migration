@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+CURRENT_VERSION=ARGV[0]
+ENV['RAILS_ENV'] = 'test'
+`rake clone_structure_to_test`
+puts `rake migrate`
+puts `rake migrate VERSION=#{CURRENT_VERSION}`

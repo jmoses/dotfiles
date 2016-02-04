@@ -54,7 +54,6 @@ alias be="bundle exec"
 alias ignore="IGNORE_BRANCH_DB=yes "
 
 # hosts
-pi='pi@192.168.1.108'
 imac=192.168.1.151
 vpn=192.168.1.117
 

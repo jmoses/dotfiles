@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+input_file = ARGV[0]
+output_directory = ARGV[1]
+
+if File.exists?(output_directory)
+  unless File.directory?( output_directory )
+    puts "Output directory is not a directory."
+    exit(1)
+  end
+else
+  Dir.mkdir( output_directory)
+end
+
+prefix = input_file[0...-4]
+
+`unzip #{input_file} -d #{output_directory}`
+
+Dir.chdir output_directory
+Dir.mkdir "decrypted" unless File.exists?( "decrypted" ) and File.directory?("decrypted")
+`for f in #{prefix}/*.ATT ; do gpg --decrypt $f > decrypted/\`basename $f\` ; done`
+puts "Orders decrypted"

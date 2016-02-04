@@ -1,0 +1,9 @@
+#!/bin/bash
+
+root=/var/www/reso-shop
+port=$1
+
+cd $root
+mongrel_rails stop -P tmp/pids/mongrel.$port.pid -w 10 -f
+rm tmp/pids/mongrel.$port.pid
+mongrel_rails start -p $port -P tmp/pids/mongrel.$port.pid -e production -d
