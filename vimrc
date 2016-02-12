@@ -129,10 +129,10 @@ au BufNewFile,BufRead *.md set filetype=markdown
 au BufRead,BufNewFile *.go set filetype=go
 
 " Clojure
-au Syntax clojure RainbowParenthesesActivate
-au Syntax clojure RainbowParenthesesLoadRound
-au Syntax clojure RainbowParenthesesLoadSquare
-au Syntax clojure RainbowParenthesesLoadBraces
+au Syntax clojure,python RainbowParenthesesActivate
+au Syntax clojure,python RainbowParenthesesLoadRound
+au Syntax clojure,python RainbowParenthesesLoadSquare
+au Syntax clojure,python RainbowParenthesesLoadBraces
 
 " Folds --- folds are annoying
 "au BufWrite * mkview
