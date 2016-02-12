@@ -27,6 +27,9 @@ set autoindent
 set scrolloff=3
 set wildignore+=.git,*.pyc
 
+" Disable bell
+autocmd! GUIEnter * set vb t_vb=
+
 "CommandT
 function! s:GotoOrOpen(command, ...)
   for file in a:000
