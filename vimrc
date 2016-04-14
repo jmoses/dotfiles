@@ -63,6 +63,10 @@ let Tlist_Close_On_Select = 1
 let Tlist_Sort_Type = "name"
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 let Tlist_Show_One_File = 1
+let Tlist_WinWidth = 60
+let Tlist_Inc_WinWidth = 0
+let Tlist_Enable_Fold_Column = 0
+
 
 "regular tag support
 set tags=./.tags;/
