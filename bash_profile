@@ -1,4 +1,5 @@
 # vim: set syntax=sh:
+source ~/.dotfiles/iterm2_shell_integration.`basename $SHELL`
 
 # shopts
 
@@ -56,11 +57,6 @@ alias ignore="IGNORE_BRANCH_DB=yes "
 # hosts
 imac=192.168.1.151
 vpn=192.168.1.117
-
-function c {
-  slogin ${!1}
-}
-
 
 function opsc_api {
   ip=$(ctool info --hosts $1)
