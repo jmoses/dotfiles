@@ -12,6 +12,9 @@ set background=dark
 colorscheme ir_black
 
 set number
+set relativenumber
+hi CursorLineNr guifg=#990000
+
 let g:NERDTreeWinSize=30
 if has("gui_running")
 	set guioptions-=T
