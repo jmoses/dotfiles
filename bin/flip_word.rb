@@ -94,5 +94,5 @@ end
 
 if ARGV.size > 0
   flipped_word = flip_word(ARGV.join(' '))
-  puts "(╯°□°)╯︵ #{flipped_word}"
+  print "(╯°□°)╯︵ #{flipped_word}"
 end

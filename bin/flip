@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl -s https://table-flip.herokuapp.com/flipping/$1 | pbcopy
