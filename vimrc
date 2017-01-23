@@ -50,7 +50,7 @@ let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
 let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tab'
 
 " Don't use flake8 it's slow as balls
-let g:syntastic_python_checker = 'pyflakes'
+let g:syntastic_python_checkers = ['pyflakes']
 
 nnoremap <silent> <C-p> :CommandT<CR>
 nnoremap <silent> <F5> :CommandTFlush<CR>
@@ -82,6 +82,19 @@ let g:airline#extensions#branch#enabled = 1 "Enable git integration
 let g:airline_powerline_fonts = 1 "Fancy glyphs
 let g:airline_section_y=''
 au WinEnter * AirlineRefresh
+
+" line moving
+" Normal mode
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+
+" Insert mode
+inoremap <C-j> <ESC>:m .+1<CR>==gi
+inoremap <C-k> <ESC>:m .-2<CR>==gi
+
+" Visual mode
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv'
 
 " osx gui stuff
 if has("gui_macvim")
@@ -143,6 +156,9 @@ au Syntax clojure,python RainbowParenthesesActivate
 au Syntax clojure,python RainbowParenthesesLoadRound
 au Syntax clojure,python RainbowParenthesesLoadSquare
 au Syntax clojure,python RainbowParenthesesLoadBraces
+
+" Fucking crontabs
+autocmd FileType crontab setlocal nowritebackup
 
 " Folds --- folds are annoying
 "au BufWrite * mkview
