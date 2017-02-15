@@ -51,6 +51,7 @@ let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tab'
 
 " Don't use flake8 it's slow as balls
 let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_always_populate_loc_list = 1
 
 nnoremap <silent> <C-p> :CommandT<CR>
 nnoremap <silent> <F5> :CommandTFlush<CR>
@@ -138,6 +139,11 @@ end
 let g:lasttab = 1
 nmap <F10> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lattab = tabpagenr()
+
+"Filter current buffer into newtab
+"http://vi.stackexchange.com/a/4431
+:command! -nargs=1 -range=% Filter <line1>,<line2>y z|tabnew|0put=@z|%!grep -n '<q-args>'
+
 
 "Python
 au BufNewFile,BufRead *.py set filetype=python
