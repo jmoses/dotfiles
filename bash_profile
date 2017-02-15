@@ -23,8 +23,7 @@ export GREP_OPTIONS='--color=always'
 export PATH="/usr/local/bin:/usr/local/sbin:/Users/jmoses/.bin:$PATH"
 
 # Datastax
-export PATH="/Users/jmoses/dev/datastax/dsc-cassandra-2.1.0/tools/bin:/Users/jmoses/dev/datastax/automaton/bin:$PATH"
-export PYTHONPATH="/Users/jmoses/dev/datastax/automaton/:$PYTHONPATH"
+export PATH="/Users/jmoses/dev/datastax/dsc-cassandra-2.1.0/tools/bin:$PATH"
 
 
 ctool_complete=/Users/jmoses/dev/datastax/automaton/bashcomplete/ctool.bash_complete
