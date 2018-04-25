@@ -3,7 +3,9 @@
 
 shopt -s histappend
 
-#export PS1="`_git_headname`!`_git_repo_state``_git_workdir`\n`_git_dirty``_git_dirty_stash`> "
+#export PS1='`_git_headname`!`_git_repo_state``_git_workdir``_git_dirty`\n`_git_dirty_stash`> '
+export PS1='\[\e]0;git-sh:$(basename $PWD)\a\]`_git_headname``_git_upstream_state`!`_git_repo_state``_git_workdir``_git_dirty``_git_dirty_stash`\n> '
+
 
 # No RVM for DS
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.

@@ -12,7 +12,7 @@ set background=dark
 colorscheme ir_black
 
 set number
-set relativenumber
+"set relativenumber
 hi CursorLineNr guifg=#660000
 
 let g:NERDTreeWinSize=30
@@ -27,11 +27,17 @@ set nocompatible
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
+set autoread "Auto reload files if they've changed (when we de-focus/focus)
 set scrolloff=3
 set wildignore+=.git,*.pyc
+set nohidden
 
 " Disable bell
 autocmd! GUIEnter * set vb t_vb=
+
+"Strip trailing whitespace (this moves the cursor on save. :/)
+" autocmd FileType python autocmd BufWritePre <buffer> %s/\s\+$//e
+
 
 "CommandT
 function! s:GotoOrOpen(command, ...)
@@ -46,12 +52,32 @@ endfunction
 
 command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
+" https://gist.github.com/skanev/1068214
+function! s:CloseHiddenBuffers()
+  let open_buffers = []
+
+  for i in range(tabpagenr('$'))
+    call extend(open_buffers, tabpagebuflist(i + 1))
+  endfor
+
+  for num in range(1, bufnr("$") + 1)
+    if buflisted(num) && index(open_buffers, num) == -1
+      exec "bdelete ".num
+    endif
+  endfor
+endfunction
+command! CloseHiddenBuffers call s:CloseHiddenBuffers()
+
 let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
 let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tab'
 
 " Don't use flake8 it's slow as balls
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_always_populate_loc_list = 1
+
+nnoremap <silent> <D-[> :lprev<CR>
+nnoremap <silent> <D-]> :lnext<CR>
+
 
 nnoremap <silent> <C-p> :CommandT<CR>
 nnoremap <silent> <F5> :CommandTFlush<CR>
@@ -100,6 +126,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv'
 " osx gui stuff
 if has("gui_macvim")
   let macvim_skip_cmd_opt_movement=1
+  set macmeta
   " From macvim gvimrc
   no   <D-Left>       <Home>
   no!  <D-Left>       <Home>
