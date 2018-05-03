@@ -90,3 +90,4 @@ export -f cdg > /dev/null
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+[ -f ~/.fzf.bash  ] && source ~/.fzf.bash
