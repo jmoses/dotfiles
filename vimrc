@@ -31,6 +31,7 @@ set autoread "Auto reload files if they've changed (when we de-focus/focus)
 set scrolloff=3
 set wildignore+=.git,*.pyc
 set nohidden
+set backspace=indent,eol,start
 
 " Disable bell
 autocmd! GUIEnter * set vb t_vb=
@@ -69,7 +70,9 @@ endfunction
 command! CloseHiddenBuffers call s:CloseHiddenBuffers()
 
 let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
-let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tab'
+if has("gui_running")
+  let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tab'
+end
 
 " Don't use flake8 it's slow as balls
 let g:syntastic_python_checkers = ['pyflakes']
@@ -77,7 +80,6 @@ let g:syntastic_always_populate_loc_list = 1
 
 nnoremap <silent> <D-[> :lprev<CR>
 nnoremap <silent> <D-]> :lnext<CR>
-
 
 nnoremap <silent> <C-p> :CommandT<CR>
 nnoremap <silent> <F5> :CommandTFlush<CR>
@@ -109,6 +111,12 @@ let g:airline#extensions#branch#enabled = 1 "Enable git integration
 let g:airline_powerline_fonts = 1 "Fancy glyphs
 let g:airline_section_y=''
 au WinEnter * AirlineRefresh
+" buffers
+if ! has("gui_running")
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#fnamemod = ':t'
+end
+
 
 " line moving
 " Normal mode
@@ -155,6 +163,9 @@ end
 noremap <silent> <D-Left> :SmartHomeKey<CR>
 imap <D-Left> <C-O><D-Left>
 
+" buffer movement
+noremap <silent> f :bn!<CR>
+noremap <silent> b :bp!<CR>
 
 if has("gui_running")
   "Disable vim-ruby's RI help
@@ -169,7 +180,9 @@ au TabLeave * let g:lattab = tabpagenr()
 
 "Filter current buffer into newtab
 "http://vi.stackexchange.com/a/4431
-:command! -nargs=1 -range=% Filter <line1>,<line2>y z|tabnew|0put=@z|%!grep -n '<q-args>'
+if has("gui_running")
+  :command! -nargs=1 -range=% Filter <line1>,<line2>y z|tabnew|0put=@z|%!grep -n '<q-args>'
+end
 
 
 "Python
