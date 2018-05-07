@@ -18,6 +18,9 @@ hi CursorLineNr guifg=#660000
 let g:NERDTreeWinSize=30
 if has("gui_running")
 	set guioptions-=T
+  " For now, don't allow hidden buffers, but w/o UI (eg: no tabs)
+  " we want hidden so we can leave a changed buffer w/o saving
+  set nohidden
 end
 
 "set colorcolumn=80
@@ -30,7 +33,6 @@ set autoindent
 set autoread "Auto reload files if they've changed (when we de-focus/focus)
 set scrolloff=3
 set wildignore+=.git,*.pyc
-set nohidden
 set backspace=indent,eol,start
 
 " Disable bell
@@ -38,6 +40,8 @@ autocmd! GUIEnter * set vb t_vb=
 
 "Strip trailing whitespace (this moves the cursor on save. :/)
 " autocmd FileType python autocmd BufWritePre <buffer> %s/\s\+$//e
+
+autocmd FileType python,ruby EnableStripWhitespaceOnSave
 
 
 "CommandT
@@ -110,6 +114,7 @@ set noshowmode "Don't show vim's default mode
 let g:airline#extensions#branch#enabled = 1 "Enable git integration
 let g:airline_powerline_fonts = 1 "Fancy glyphs
 let g:airline_section_y=''
+let g:airline#extensions#whitespace#enabled = 0
 au WinEnter * AirlineRefresh
 " buffers
 if ! has("gui_running")
@@ -164,8 +169,8 @@ noremap <silent> <D-Left> :SmartHomeKey<CR>
 imap <D-Left> <C-O><D-Left>
 
 " buffer movement
-noremap <silent> f :bn!<CR>
-noremap <silent> b :bp!<CR>
+noremap <silent> f :bn<CR>
+noremap <silent> b :bp<CR>
 
 if has("gui_running")
   "Disable vim-ruby's RI help
