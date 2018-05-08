@@ -11,6 +11,7 @@
 	close = !ruby ~/bin/pull_request_and_close_branch.rb
   fix = "!f() { mvim -np `git diff --name-only --diff-filter=U | sort | uniq`; }; f"
 	root = rev-parse --show-toplevel
+  fco = !~/bin/git-fco
 [color "sh"]
 		workdir = cyan bold
 [core]
