@@ -42,6 +42,7 @@ autocmd! GUIEnter * set vb t_vb=
 " autocmd FileType python autocmd BufWritePre <buffer> %s/\s\+$//e
 
 autocmd FileType python,ruby EnableStripWhitespaceOnSave
+let g:better_whitespace_filetypes_blacklist=['log', 'diff', 'gitcommit', 'unite', 'qf', 'help']
 
 
 "CommandT
@@ -201,6 +202,9 @@ au BufNewFile,BufRead *.md set filetype=markdown
 
 " Go files
 au BufRead,BufNewFile *.go set filetype=go
+
+" Log files
+au BufRead,BufNewFile *.log set filetype=log
 
 " Clojure
 au Syntax clojure,python RainbowParenthesesActivate
