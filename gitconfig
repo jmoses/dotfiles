@@ -2,7 +2,7 @@
 	name = Jon Moses
 			email = jon@burningbush.us
 [color]
-		ui = auto
+	ui = true
 [push]
 [alias]
 	cm = commit -m
@@ -17,7 +17,22 @@
 [core]
 	excludesfile = /Users/jmoses/.gitignore
 	trustctime = false
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
 	default = current
 [merge]
   autosetuprebase = always
+[rerere]
+  enabled = 1
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
