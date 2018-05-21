@@ -82,6 +82,7 @@ end
 " Don't use flake8 it's slow as balls
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 
 nnoremap <silent> <D-[> :lprev<CR>
 nnoremap <silent> <D-]> :lnext<CR>
