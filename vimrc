@@ -8,6 +8,9 @@ if has("mac") || has("macunix")
 end
 
 " Colors
+"set t_8f=[38;2;%lu;%lu;%lum
+"set t_8b=[48;2;%lu;%lu;%lum
+"set termguicolors
 set background=dark
 colorscheme ir_black
 
@@ -224,3 +227,10 @@ autocmd FileType crontab setlocal nowritebackup
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
+
+" promptline
+let g:promptline_preset = {
+ \'a': [ '\u' ],
+ \'b': [ promptline#slices#cwd() ],
+ \'y': [ promptline#slices#vcs_branch() ],
+ \'warn': [ promptline#slices#last_exit_code() ]}
