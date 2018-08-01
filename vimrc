@@ -8,9 +8,9 @@ if has("mac") || has("macunix")
 end
 
 " Colors
-"set t_8f=[38;2;%lu;%lu;%lum
-"set t_8b=[48;2;%lu;%lu;%lum
-"set termguicolors
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+set t_Co=256
 set background=dark
 colorscheme ir_black
 
@@ -35,7 +35,7 @@ set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
 set autoread "Auto reload files if they've changed (when we de-focus/focus)
 set scrolloff=3
-set wildignore+=.git,*.pyc
+set wildignore+=.git,*.pyc,*.swp
 set backspace=indent,eol,start
 
 " Disable bell
