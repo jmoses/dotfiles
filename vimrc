@@ -234,3 +234,7 @@ let g:promptline_preset = {
  \'b': [ promptline#slices#cwd() ],
  \'y': [ promptline#slices#vcs_branch() ],
  \'warn': [ promptline#slices#last_exit_code() ]}
+
+" fugitive for github-ds
+let g:fugitive_github_domains=["github.com-ds"]
+
