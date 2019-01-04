@@ -1,5 +1,7 @@
 # vim: set syntax=sh:
-source ~/.dotfiles/iterm2_shell_integration.`basename $SHELL`
+if [ -x "$SSH_CLIENT" ]; then 
+  source ~/.dotfiles/iterm2_shell_integration.`basename $SHELL`
+fi
 
 # shopts
 

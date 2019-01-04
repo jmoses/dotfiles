@@ -229,8 +229,8 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 " promptline
-let g:promptline_preset = {
- \'a': [ '\u' ],
- \'b': [ promptline#slices#cwd() ],
- \'y': [ promptline#slices#vcs_branch() ],
- \'warn': [ promptline#slices#last_exit_code() ]}
+"let g:promptline_preset = {
+" \'a': [ '\u' ],
+" \'b': [ promptline#slices#cwd() ],
+" \'y': [ promptline#slices#vcs_branch() ],
+" \'warn': [ promptline#slices#last_exit_code() ]}
