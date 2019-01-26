@@ -87,6 +87,8 @@ command! CloseHiddenBuffers call s:CloseHiddenBuffers()
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+" TODO: Fix this for jinja
+let g:syntastic_html_checkers = []
 
 nnoremap <silent> <D-[> :lprev<CR>
 nnoremap <silent> <D-]> :lnext<CR>
@@ -240,3 +242,6 @@ nnoremap <silent> <C-p> :Files<CR>
 inoremap <silent> <C-p> <Esc>:Files<CR>
 nnoremap <silent> <F7> :BTags<CR>
 inoremap <silent> <F7> <Esc>:BTags<CR>
+
+" AutoPairs
+let g:AutoPairsShortcutBackInsert = '<C-]>'
