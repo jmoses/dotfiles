@@ -77,11 +77,6 @@ function! s:CloseHiddenBuffers()
 endfunction
 command! CloseHiddenBuffers call s:CloseHiddenBuffers()
 
-let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
-if has("gui_running")
-  let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tab'
-end
-
 " Don't use flake8 it's slow as balls
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_always_populate_loc_list = 1
@@ -90,8 +85,6 @@ let g:syntastic_auto_loc_list = 1
 nnoremap <silent> <D-[> :lprev<CR>
 nnoremap <silent> <D-]> :lnext<CR>
 
-nnoremap <silent> <C-p> :CommandT<CR>
-nnoremap <silent> <F5> :CommandTFlush<CR>
 let g:CommandTMaxHeight=35
 " May want this as per-project, but how?
 let g:CommandTTraverseSCM='pwd'
@@ -234,3 +227,10 @@ let g:indent_guides_guide_size=1
 " \'b': [ promptline#slices#cwd() ],
 " \'y': [ promptline#slices#vcs_branch() ],
 " \'warn': [ promptline#slices#last_exit_code() ]}
+
+" fzf-vim
+set rtp+=/usr/local/opt/fzf
+nnoremap <silent> <C-p> :Files<CR>
+inoremap <silent> <C-p> <Esc>:Files<CR>
+nnoremap <silent> <F7> :BTags<CR>
+inoremap <silent> <F7> <Esc>:BTags<CR>
