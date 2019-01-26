@@ -61,6 +61,12 @@ endfunction
 
 command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
+let g:fzf_action = {
+  \ 'ctrl-t': 'GotoOrOpen tab',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+let g:fzf_buffers_jump = 1
+
 " https://gist.github.com/skanev/1068214
 function! s:CloseHiddenBuffers()
   let open_buffers = []
