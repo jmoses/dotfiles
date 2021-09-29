@@ -55,7 +55,10 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-scripts/Smart-Home-Key'
 
-Plug 'eapache/rainbow_parentheses.vim'
+" rainbow parenthesis
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
 
 " airline
 Plug 'vim-airline/vim-airline'
