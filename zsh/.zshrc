@@ -72,6 +72,9 @@ plugins=(git zsh-autosuggestions asdf)
 
 asdf_dir=$(brew --prefix asdf)
 
+# Autocomplete with files if nothing known
+zstyle :completion::::: completer _complete _files
+
 source $ZSH/oh-my-zsh.sh
 source /usr/local/opt/kube-ps1/share/kube-ps1.sh
 
