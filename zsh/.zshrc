@@ -120,7 +120,7 @@ export EDITOR=vim
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export LOGDNA_WORKDIR=~/dev/logdna
 
-[ -f ~/.zsh.secrets ] && source ~/.zsh.secrets
+source ~/.zsh.d/*.sh
 
 
 PATH=~/.bin/:${HOME}/.krew/bin:$PATH
