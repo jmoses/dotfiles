@@ -120,8 +120,9 @@ export EDITOR=vim
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export LOGDNA_WORKDIR=~/dev/logdna
 
-source ~/.zsh.d/*.sh
-
+for f in ~/.zsh.d/*.sh ; do
+    source $f
+done
 
 PATH=~/.bin/:${HOME}/.krew/bin:$PATH
 
@@ -168,3 +169,11 @@ function repo() {
         fi
     fi
 }
+
+# Completion
+## kubectl -> kc completion
+#if [ -e $COMPLETION_DIR/kubectl.bash ]; then
+#    complete -o default -o nospace -F __start_kubectl kc
+#    complete -o default -o nospace -F __start_kubectl gy
+#    complete -o default -o nospace -F __start_kubectl yg
+#fi

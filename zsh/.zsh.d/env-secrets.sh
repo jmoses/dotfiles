@@ -1,6 +1,6 @@
-cachetarget=${CACHED_SECRETS:-${HOME}/.zsh.secrets.cached}
-vault=Private
-itemname=ENV_VARS
+cachetarget=${SHELL_CACHED_SECRETS_FILE:-${HOME}/.zsh.secrets.cached}
+vault=${SHELL_CACHED_SECRETS_VAULT:-Private}
+itemname=${SHELL_CACHED_SECRETS_ITEM:-ENV_VARS}
 
 if [ -e $cachetarget ] ; then
     if ! stat $cachetarget | grep '\-rw-------' &> /dev/null ; then
