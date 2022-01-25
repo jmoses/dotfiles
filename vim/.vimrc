@@ -107,8 +107,9 @@ set backspace=indent,eol,start
 "set list
 ""set listchars=tab:>-
 match Error /\t/
-autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
+autocmd FileType make set noexpandtab shiftwidth=0 softtabstop=0
 autocmd FileType make match none /\t/
+
 
 " envsubst filetypes
 au BufRead,BufNewFile *.yaml.envsubst setf yaml
