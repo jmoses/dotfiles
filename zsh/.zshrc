@@ -72,6 +72,9 @@ plugins=(git zsh-autosuggestions asdf)
 
 asdf_dir=$(brew --prefix asdf)
 
+# Do not upgrade random things
+HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
+
 # Autocomplete with files if nothing known
 zstyle :completion::::: completer _complete _files
 
