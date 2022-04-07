@@ -1,3 +1,11 @@
+# Fig pre block. Keep at the top of this file.
+FIG=no
+FIGPATH=~/.local/bin/fig
+if [ -e $FIGPATH ] ; then 
+    FIG=yes
+    eval "$(${FIGPATH} init zsh pre)"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -180,3 +188,9 @@ function repo() {
 #    complete -o default -o nospace -F __start_kubectl gy
 #    complete -o default -o nospace -F __start_kubectl yg
 #fi
+
+# Fig post block. Keep at the bottom of this file.
+if [ $FIG = 'yes' ] ; then 
+    eval "$(${FIGPATH} init zsh post)"
+fi
+
