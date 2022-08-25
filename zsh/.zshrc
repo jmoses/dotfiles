@@ -1,11 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-FIG=no
-FIGPATH=~/.local/bin/fig
-if [ -e $FIGPATH ] ; then 
-    FIG=yes
-    eval "$(${FIGPATH} init zsh pre)"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -127,6 +119,7 @@ alias gdmb!='gco $(git_main_branch) && git-dmb --effort=3'
 alias grbom='gfo && git rebase origin/$(git_main_branch)'
 alias kc=kubectl
 alias ldc=logdnactl
+alias gh="GITHUB_TOKEN='' gh"
 export EDITOR=vim
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export LOGDNA_WORKDIR=~/dev/logdna
@@ -193,4 +186,3 @@ function repo() {
 if [ $FIG = 'yes' ] ; then 
     eval "$(${FIGPATH} init zsh post)"
 fi
-
