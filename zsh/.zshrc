@@ -181,8 +181,3 @@ function repo() {
 #    complete -o default -o nospace -F __start_kubectl gy
 #    complete -o default -o nospace -F __start_kubectl yg
 #fi
-
-# Fig post block. Keep at the bottom of this file.
-if [ $FIG = 'yes' ] ; then 
-    eval "$(${FIGPATH} init zsh post)"
-fi
