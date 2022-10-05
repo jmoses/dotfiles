@@ -54,6 +54,9 @@ Plug 'airblade/vim-gitgutter'
 
 
 Plug 'vim-scripts/Smart-Home-Key'
+if has('osx')
+    noremap <D-Left> :SmartHomeKey<CR>
+endif
 
 " rainbow parenthesis
 Plug 'luochen1990/rainbow'
