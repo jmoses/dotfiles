@@ -27,6 +27,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 
 Plug 'wgibbs/vim-irblack'
+Plug 'dracula/vim', {'as': 'dracula'}
 
 " fzf stuff
 Plug '/usr/local/opt/fzf/'
@@ -117,6 +118,7 @@ autocmd FileType make match none /\t/
 " envsubst filetypes
 au BufRead,BufNewFile *.yaml.envsubst setf yaml
 
+set termguicolors
 colorscheme ir_black
 
 highlight! link SignColumn LineNr
