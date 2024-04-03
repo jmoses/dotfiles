@@ -113,6 +113,7 @@ set backspace=indent,eol,start
 match Error /\t/
 autocmd FileType make set noexpandtab shiftwidth=0 softtabstop=0
 autocmd FileType make match none /\t/
+autocmd FileType json set tabstop=2 shiftwidth=2 softtabstop=2
 
 
 " envsubst filetypes

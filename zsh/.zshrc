@@ -126,7 +126,7 @@ alias per="pipenv run"
 alias perp="pipenv run python"
 alias gaucmsg="git add --update && git commit -m"
 alias glinted="gau && gcn! && ggp"
-alias gdmb!='gco $(git_main_branch) && git-dmb --effort=3'
+alias gdmb!='gco $(git_main_branch) && git-dmb --effort=3 && ggl'
 alias grbom='gfo && git rebase origin/$(git_main_branch)'
 alias kc=kubectl
 alias ldc=logdnactl
@@ -134,6 +134,7 @@ alias gh="GITHUB_TOKEN='' gh"
 export EDITOR=vim
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export LOGDNA_WORKDIR=~/dev/mezmo
+export SDM_EMAIL=jon.moses@mezmo.com
 
 for f in ~/.zsh.d/*.sh ; do
     source $f
