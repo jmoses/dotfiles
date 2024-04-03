@@ -31,6 +31,7 @@ Plug 'dracula/vim', {'as': 'dracula'}
 
 " fzf stuff
 Plug '/usr/local/opt/fzf/'
+Plug '/opt/homebrew/opt/fzf' " ?
 Plug 'junegunn/fzf.vim'
 
 nnoremap <silent> <C-p> :Files<CR>
