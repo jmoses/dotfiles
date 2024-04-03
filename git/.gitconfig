@@ -1,0 +1,53 @@
+[user]
+	name = Jon Moses
+	email = jon@burningbush.us
+[alias]
+    a = add
+    aa = add -u
+    s = status
+    d = diff
+    cm = commit -m
+	co = checkout
+    gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+
+[core]
+    #pager = ~/dev/misc/diff-so-fancy/diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
+	excludesfile = ~/.gitignore
+	hooksPath = /Users/jmoses/dev/misc/pre-commit-global
+[push]
+	default = current
+[pull]
+	rebase = true
+[diff]
+    external = difft
+
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Dracula
+    navigate = true
+    dark = true
+    features = decorations
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+[rerere]
+	enabled = true
+[rebase]
+	autoStash = true
+	autosquash = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[help]
+	autoCorrect = 20
+[init]
+	defaultBranch = main
