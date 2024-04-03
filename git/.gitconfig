@@ -12,9 +12,9 @@
 
 [core]
     #pager = ~/dev/misc/diff-so-fancy/diff-so-fancy | less --tabs=4 -RFX
-    pager = delta
+    #pager = delta
 	excludesfile = ~/.gitignore
-	hooksPath = /Users/jmoses/dev/misc/pre-commit-global
+	hooksPath = /Users/jon.moses/dev/misc/global-pre-commit-hooks
 [push]
 	default = current
 [pull]
