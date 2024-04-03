@@ -146,7 +146,7 @@ source_if_exists "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 source_if_exists "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 #source_if_exists /usr/local/ibmcloud/autocomplete/zsh_autocomplete
 
-if command -v thefuck &> /dev/null ; then 
+if command -v thefuck &> /dev/null ; then
     eval $(thefuck --alias)
 else
     echo "Missing command: thefuck"
