@@ -1,8 +1,18 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+source_if_exists() {
+    readonly file=$1
+    if [ -e $file ] ; then
+        source $file
+    else
+        echo "Missing: $file"
+    fi
+}
+
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jmoses/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -79,7 +89,8 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 zstyle :completion::::: completer _complete _files
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/opt/kube-ps1/share/kube-ps1.sh
+source_if_exists $HOMEBREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh
+
 
 NEWLINE=$'\n'
 
@@ -122,7 +133,7 @@ alias ldc=logdnactl
 alias gh="GITHUB_TOKEN='' gh"
 export EDITOR=vim
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
-export LOGDNA_WORKDIR=~/dev/logdna
+export LOGDNA_WORKDIR=~/dev/mezmo
 
 for f in ~/.zsh.d/*.sh ; do
     source $f
@@ -130,12 +141,21 @@ done
 
 PATH=~/.bin/:${HOME}/.krew/bin:$PATH
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source /usr/local/ibmcloud/autocomplete/zsh_autocomplete
+source_if_exists "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source_if_exists "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+#source_if_exists /usr/local/ibmcloud/autocomplete/zsh_autocomplete
 
-eval $(thefuck --alias)
+if command -v thefuck &> /dev/null ; then 
+    eval $(thefuck --alias)
+else
+    echo "Missing command: thefuck"
+fi
+
+if command -v fzf &> /dev/null ; then
+    eval "$(fzf --zsh)"
+else
+    echo "Missing command: fzf"
+fi
 
 setopt hist_find_no_dups
 bindkey "${key[Up]}" up-line-or-local-history
