@@ -9,7 +9,7 @@ set tags=./.tags;/
 
 if has("gui_running")
     if has("gui_gtk3") || has("macunix") || has("mac")
-        set guifont=FiraCodeNerdFontComplet-Regular:h13
+        set guifont=FiraCodeNF-Reg:h13
     endif
 endif
 
