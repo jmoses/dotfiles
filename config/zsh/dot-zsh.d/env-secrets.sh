@@ -13,8 +13,8 @@ function _load_or_cache_secrets {
             op vault list --cache &> /dev/null
             SIGNED_IN=$?
             # TODO: A new session will never be signed in, how do?
-            if [ ! $SIGNED_IN -eq 0 ]  ; then 
-                echo 
+            if [ ! $SIGNED_IN -eq 0 ]  ; then
+                echo
                 if read -sqt5 "x?Not signed into 1password, signin? " ; then
                     echo
                     eval $(op signin)
