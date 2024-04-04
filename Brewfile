@@ -1,4 +1,5 @@
 tap "homebrew/bundle"
+brew "mas"
 brew "asdf"
 brew "difftastic"
 brew "fzf"
@@ -12,3 +13,8 @@ brew "thefuck"
 brew "yq"
 cask "1password-cli"
 cask "google-cloud-sdk"
+
+tap "zackelia/formulae"
+brew "bclm"
+
+mas "Amphetamine", id: 937984704
