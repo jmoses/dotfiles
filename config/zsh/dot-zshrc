@@ -1,5 +1,4 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# vim: syntax=zsh
 
 source_if_exists() {
     readonly file=$1
@@ -159,21 +158,21 @@ else
 fi
 
 setopt hist_find_no_dups
-bindkey "${key[Up]}" up-line-or-local-history
-bindkey "${key[Down]}" down-line-or-local-history
+function up-line-or-history() {
+    zle set-local-history 1
+    zle .up-line-or-history
+    zle set-local-history 0
+}
 
-up-line-or-local-history() {
+function down-line-or-history() {
     zle set-local-history 1
-    zle up-line-or-history
+    zle .down-line-or-history
     zle set-local-history 0
 }
-zle -N up-line-or-local-history
-down-line-or-local-history() {
-    zle set-local-history 1
-    zle down-line-or-history
-    zle set-local-history 0
-}
-zle -N down-line-or-local-history
+
+# Overwrite existing {up,down}-line-or-history widgets with the functions above.
+zle -N up-line-or-history
+zle -N down-line-or-history
 
 function repo() {
     if [ ! -z $1 ]; then
