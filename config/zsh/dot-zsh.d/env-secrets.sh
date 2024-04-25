@@ -18,7 +18,7 @@ function _load_or_cache_secrets {
                 if read -sqt5 "x?Not signed into 1password, signin? " ; then
                     echo
                     eval $(op signin)
-                    op valut list --cache &> /dev/null
+                    op vault list --cache &> /dev/null
                     SIGNED_IN=$?
                 fi
             fi
