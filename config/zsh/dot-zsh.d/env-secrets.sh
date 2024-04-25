@@ -26,7 +26,7 @@ function _load_or_cache_secrets {
             if [ $SIGNED_IN -eq 0 ] ; then
                 touch $cachetarget
                 chmod 600 $cachetarget
-                op item get --cache --format json --vault $vault ${itemname} | jq -r '.fields | .[] |  select(.section) | "export " + .label + "=" + .value' > $cachetarget
+                op item get --cache --format json --vault $vault ${itemname} | jq -r '.fields | .[] |  select(.section) | "export " + .label + "=\"" + .reference + "\""' > $cachetarget
                 source $cachetarget
             else
                 echo "Not signed into 1p."
