@@ -9,10 +9,10 @@
     cm = commit -m
 	co = checkout
     gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+    db-deps = ! "for f in $(gh pr list --author 'app/dependabot' --json headRefName  --template '{{range .}}{{.headRefName}}{{\"\\n\"}}{{end}}' ) ; do git merge origin/$f --no-edit ; done"
 
 [core]
-    #pager = ~/dev/misc/diff-so-fancy/diff-so-fancy | less --tabs=4 -RFX
-    #pager = delta
+    pager = less -F
 	excludesfile = ~/.gitignore
 	hooksPath = /Users/jon.moses/dev/misc/global-pre-commit-hooks
 [push]
