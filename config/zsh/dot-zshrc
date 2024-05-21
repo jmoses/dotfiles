@@ -63,7 +63,7 @@ export EDITOR=vim
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export LOGDNA_WORKDIR=~/dev/mezmo
 export SDM_EMAIL=jon.moses@mezmo.com
-export LESS="-X"
+export LESS="-RX"
 
 for f in ~/.zsh.d/*.sh ; do
     source $f
@@ -82,21 +82,22 @@ else
 fi
 
 setopt hist_find_no_dups
-function up-line-or-history() {
+bindkey "${key[Up]}" up-line-or-local-history
+bindkey "${key[Down]}" down-line-or-local-history
+
+up-line-or-local-history() {
     zle set-local-history 1
-    zle .up-line-or-history
+    zle up-line-or-history
     zle set-local-history 0
 }
-
-function down-line-or-history() {
+zle -N up-line-or-local-history
+down-line-or-local-history() {
     zle set-local-history 1
-    zle .down-line-or-history
+    zle down-line-or-history
     zle set-local-history 0
 }
+zle -N down-line-or-local-history
 
-# Overwrite existing {up,down}-line-or-history widgets with the functions above.
-zle -N up-line-or-history
-zle -N down-line-or-history
 
 function repo() {
     if [ ! -z $1 ]; then
