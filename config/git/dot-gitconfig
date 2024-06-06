@@ -30,9 +30,6 @@
     dark = true
     features = decorations
 
-[interactive]
-    diffFilter = delta --color-only
-
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
