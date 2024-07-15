@@ -14,7 +14,7 @@
 [core]
     pager = less -F
 	excludesfile = ~/.gitignore
-	hooksPath = /Users/jon.moses/dev/misc/global-pre-commit-hooks
+	hooksPath = /Users/jon.moses/dev/misc/global-pre-commit-hooks/hooks
 [push]
 	default = current
 [pull]
