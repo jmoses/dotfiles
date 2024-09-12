@@ -30,9 +30,9 @@ if command -v zgenom &> /dev/null ; then
         zgenom ohmyzsh plugins/gh
         zgenom ohmyzsh plugins/httpie
         zgenom ohmyzsh plugins/kube-ps1
-        zgenom load git@github.com:zsh-users/zsh-autosuggestions.git
+        zgenom load https://github.com/zsh-users/zsh-autosuggestions.git
         zgenom load https://github.com/dracula/zsh.git dracula.zsh-theme
-        zgenom load git@github.com:Aloxaf/fzf-tab.git
+        zgenom load https://github.com/Aloxaf/fzf-tab.git
         zgenom save
     fi
 else
