@@ -49,3 +49,5 @@
 	autoCorrect = 20
 [init]
 	defaultBranch = main
+[fetch]
+	prune = true
