@@ -9,7 +9,7 @@
     cm = commit -m
 	co = checkout
     gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
-    db-deps = ! "for f in $(gh pr list --author 'app/dependabot' --json headRefName  --template '{{range .}}{{.headRefName}}{{\"\\n\"}}{{end}}' ) ; do git merge origin/$f --no-edit ; done"
+    db-deps = ! "for f in $(gh pr list --author 'app/dependabot' --json headRefName  --template '{{range .}}{{.headRefName}}{{\"\\n\"}}{{end}}' ) ; do git merge origin/$f --no-edit || exit 1 ; done"
 
 [core]
     pager = less -F
