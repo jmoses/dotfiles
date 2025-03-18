@@ -38,8 +38,8 @@
 	enabled = true
 [rebase]
 	autoStash = true
-	autosquash = true
 	updateRefs = true
+	autoSquash = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
