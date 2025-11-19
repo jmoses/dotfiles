@@ -1,0 +1,12 @@
+font-family = FiraCode Nerd Font Mono
+theme = Deep
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+copy-on-select = clipboard
+window-theme = dark
+macos-titlebar-style = native
+
+keybind = cmd+opt+arrow_right=next_tab
+keybind = cmd+opt+arrow_left=previous_tab
+keybind = cmd+w=ignore
