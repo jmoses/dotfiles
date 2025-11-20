@@ -1,4 +1,7 @@
 font-family = FiraCode Nerd Font Mono
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 theme = Deep
 cursor-style = block
 cursor-style-blink = false
