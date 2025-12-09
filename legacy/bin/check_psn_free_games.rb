@@ -20,9 +20,8 @@ previous_hash = File.read(File.expand_path('~/.psn_free')).strip rescue nil
 if hash != previous_hash
   File.open(File.expand_path('~/.psn_free'), 'w') {|f| f << hash }
   if ARGV[0]
-    File.open(File.join(ARGV[0], Time.now.strftime('%Y%m%d_games.txt')), 'w') {|out| short.each {|g| out.puts g } } 
+    File.open(File.join(ARGV[0], Time.now.strftime('%Y%m%d_games.txt')), 'w') {|out| short.each {|g| out.puts g } }
   else
     short.each {|g| puts g }
   end
 end
-

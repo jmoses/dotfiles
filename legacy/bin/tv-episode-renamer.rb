@@ -4,7 +4,7 @@ require 'fileutils'
 require 'rubygems'
 require 'trollop'
 
-opts = Trollop::options do 
+opts = Trollop::options do
 	opt :prefix, "Prefix of shows to find.", :type => :string
 	opt :title, "'Pretty' title of series (used on new file names)", :type => :string
 	opt :series_regex, "Different regex to use.", :type => :string
@@ -25,11 +25,11 @@ Dir['*'].each do |fname|
     if fname =~ series_patt
       series_num = ( opts[:series_num] != '' ? opts[:series_num] : $1 )
       ep_num = ( opts[:series_num] != '' ? $1 : $2 )
-      
+
       puts "Found Season #{series_num}, episode #{ep_num} of #{opts[:title]}"
 
       new_name = "#{opts[:title]} - S#{sprintf('%02d', series_num.to_i)}E#{sprintf('%02d', ep_num.to_i)}#{File.extname(fname)}"
-      
+
       if new_name == fname
         puts " -> properly named already"
       else

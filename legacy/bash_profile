@@ -1,5 +1,5 @@
 # vim: set syntax=sh:
-if [ -x "$SSH_CLIENT" ]; then 
+if [ -x "$SSH_CLIENT" ]; then
   source ~/.dotfiles/iterm2_shell_integration.`basename $SHELL`
 fi
 
